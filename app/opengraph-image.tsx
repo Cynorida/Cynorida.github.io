@@ -5,6 +5,7 @@ import { ImageResponse } from "next/og";
 export const alt = "Cynorida: managed detection and response, run in the open";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const dynamic = "force-static";
 
 export default async function OpengraphImage() {
   const svg = await readFile(join(process.cwd(), "public/brand/logo.svg"));

@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { headers } from "next/headers";
 import { Mona_Sans, JetBrains_Mono } from "next/font/google";
 import { company } from "@/content/company";
 import "./globals.css";
@@ -79,10 +78,26 @@ function organizationData() {
   };
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' blob: data:",
+  "font-src 'self'",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${mona.variable} ${jetbrains.variable}`}>
+      <head>
+        <meta httpEquiv="Content-Security-Policy" content={contentSecurityPolicy} />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+      </head>
       <body>
         <a className="skip-link" href="#main">
           Skip to content
@@ -90,7 +105,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {children}
         <script
           type="application/ld+json"
-          nonce={nonce}
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData()).replace(/</g, "\\u003c") }}
         />
       </body>

@@ -17,6 +17,8 @@ const pages = [
   "/terms",
 ];
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(`${company.legalUpdated}T00:00:00Z`);
   return [
