@@ -1,0 +1,37 @@
+.missing {
+  padding-block: clamp(6rem, 4rem + 8vw, 10rem);
+}
+
+.missing__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.missing__code {
+  margin-block-end: var(--space-6);
+  color: var(--ember);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.missing__title {
+  max-width: 14em;
+  font-size: var(--display-md);
+  line-height: 1.04;
+  letter-spacing: var(--tracking-display);
+}
+
+.missing__lede {
+  margin-block-start: var(--space-6);
+  max-width: 34em;
+  color: var(--text-2);
+  font-size: var(--text-md);
+}
+
+.missing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-block-start: var(--space-8);
+}

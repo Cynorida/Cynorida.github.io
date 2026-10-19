@@ -1,0 +1,182 @@
+.closing {
+  position: relative;
+  padding-block-end: var(--section-space);
+}
+
+.closing__band {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--space-10) var(--space-5) calc(var(--space-40) + var(--space-16));
+  border-radius: var(--radius-window);
+  background: var(--ink-0);
+  box-shadow: var(--depth-1);
+}
+
+.closing__field {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  block-size: calc(var(--space-40) * 2);
+  z-index: -1;
+  border-radius: inherit;
+  overflow: clip;
+  pointer-events: none;
+}
+
+.closing__field-fallback {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 40% at 70% 92%, color-mix(in oklch, var(--ember) 34%, transparent), transparent 70%),
+    radial-gradient(50% 36% at 30% 98%, color-mix(in oklch, var(--rose) 26%, transparent), transparent 70%),
+    radial-gradient(55% 40% at 96% 80%, color-mix(in oklch, var(--tide) 30%, transparent), transparent 72%);
+  transition: opacity 1.2s var(--ease-out);
+}
+
+.closing__field-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  opacity: 0;
+  transition: opacity 1.6s var(--ease-out);
+}
+
+.closing__field-canvas[data-ready] {
+  opacity: 1;
+}
+
+.closing__field:has(.closing__field-canvas[data-ready]) .closing__field-fallback {
+  opacity: 0;
+}
+
+.closing__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--ink-0) 0%, var(--ink-0) 30%, transparent 72%);
+}
+
+.closing__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 34rem;
+}
+
+@media (min-width: 600px) {
+  .closing__band {
+    padding: var(--space-12) var(--space-10) calc(var(--space-40) + var(--space-20));
+  }
+}
+
+.closing__title {
+  color: var(--text-1);
+  font-size: var(--display-md);
+  line-height: 1.04;
+  letter-spacing: var(--tracking-display);
+  max-width: 12em;
+}
+
+.closing__lede {
+  margin-block-start: var(--space-5);
+  max-width: 30em;
+  color: var(--text-2);
+  font-size: var(--text-md);
+  line-height: 1.55;
+}
+
+.closing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block-start: var(--space-8);
+}
+
+.closing__note {
+  margin-block-start: var(--space-8);
+  padding-block-start: var(--space-5);
+  border-block-start: 1px solid var(--line-2);
+  color: var(--text-3);
+  font-size: var(--text-ui);
+}
+
+.closing__note-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 24px;
+  color: var(--text-1);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--line-4);
+  text-underline-offset: 3px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.closing__note-link:hover {
+  color: var(--ember);
+}
+
+.closing__note-arrow {
+  width: 14px;
+  height: 14px;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.closing__note-link:hover .closing__note-arrow {
+  transform: translateX(2px);
+}
+
+@media (max-width: 479px) {
+  .closing__actions {
+    flex-direction: column;
+    align-items: stretch;
+    inline-size: 100%;
+  }
+
+  .closing__actions .button {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .closing__band {
+    justify-content: center;
+    min-height: 28rem;
+    padding: var(--space-16) clamp(var(--space-10), 6vw, var(--space-20));
+  }
+
+  .closing__field {
+    inset-block-start: 0;
+    block-size: auto;
+  }
+
+  .closing__content {
+    max-width: min(34rem, 52%);
+  }
+
+  .closing__field-fallback {
+    background:
+      radial-gradient(34% 60% at 78% 70%, color-mix(in oklch, var(--ember) 34%, transparent), transparent 70%),
+      radial-gradient(30% 56% at 66% 96%, color-mix(in oklch, var(--rose) 26%, transparent), transparent 70%),
+      radial-gradient(32% 64% at 94% 40%, color-mix(in oklch, var(--tide) 30%, transparent), transparent 72%);
+  }
+
+  .closing__scrim {
+    background: linear-gradient(to right, var(--ink-0) 0%, var(--ink-0) 42%, transparent 74%);
+  }
+}
+
+@media (min-width: 1240px) {
+  .closing__band {
+    min-height: 30rem;
+  }
+}

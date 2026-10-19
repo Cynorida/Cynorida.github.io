@@ -1,0 +1,12 @@
+.wordmark {
+  display: block;
+  inline-size: auto;
+}
+
+.brand-mark {
+  display: inline-block;
+  flex: none;
+  background: currentColor;
+  -webkit-mask: url("/brand/logo-mark.svg") center / contain no-repeat;
+  mask: url("/brand/logo-mark.svg") center / contain no-repeat;
+}
