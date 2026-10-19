@@ -7,8 +7,9 @@ import { company } from "@/content/company";
 import "./header.css";
 
 const links = [
-  { href: "/#services", label: "Services" },
-  { href: "/#platform", label: "Platform" },
+  { href: "/services/", label: "Services" },
+  { href: "/how-we-engage/", label: "How we engage" },
+  { href: "/team/", label: "Team" },
   { href: "/blog/", label: "Blog" },
   { href: "/newsletter/", label: "Newsletter" },
   { href: "/partnership/", label: "Partnership" },

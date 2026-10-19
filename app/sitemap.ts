@@ -1,7 +1,15 @@
 import type { MetadataRoute } from "next";
 import { company } from "@/content/company";
+import { offeredServices } from "@/content/services";
 
-const pages = ["/", "/blog/", "/newsletter/", "/partnership/", "/press/", "/privacy-policy/", "/terms-of-use/"];
+const pages = [
+  "/",
+  "/services/",
+  ...offeredServices.map((service) => `/services/${service.slug}/`),
+  "/how-we-engage/",
+  "/team/",
+  "/blog/", "/newsletter/", "/partnership/", "/press/", "/privacy-policy/", "/terms-of-use/",
+];
 
 export const dynamic = "force-static";
 

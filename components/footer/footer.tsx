@@ -13,7 +13,8 @@ const columns: FooterColumn[] = [
     id: "footer-navigation",
     title: "Navigation",
     links: [
-      { label: "Services", href: "/#services" },
+      { label: "Services", href: "/services/" },
+      { label: "How we engage", href: "/how-we-engage/" },
       { label: "Platform", href: "/#platform" },
       { label: "Blog", href: "/blog/" },
       { label: "Newsletter", href: "/newsletter/" },
@@ -25,6 +26,7 @@ const columns: FooterColumn[] = [
     id: "footer-company",
     title: "Company",
     links: [
+      { label: "Team", href: "/team/" },
       { label: "Partnership", href: "/partnership/" },
       { label: "Press kit", href: "/press/" },
     ],

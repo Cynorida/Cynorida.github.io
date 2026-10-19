@@ -5,6 +5,18 @@ export type Post = {
   href: string;
 };
 
+export type Certification = {
+  name: string;
+  verifyHref: string;
+};
+
+export type Tester = {
+  name: string;
+  role: string;
+  certifications: Certification[];
+  profileHref: string | null;
+};
+
 export type Company = {
   brandName: string;
   domain: string;
@@ -17,6 +29,7 @@ export type Company = {
   };
   posts: Post[];
   editions: Post[];
+  testers: Tester[];
   legalUpdated: string;
 };
 
@@ -33,5 +46,6 @@ export const company: Company = {
   },
   posts: [],
   editions: [],
+  testers: [],
   legalUpdated: "2026-10-19",
 };
