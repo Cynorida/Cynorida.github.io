@@ -24,7 +24,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://cynorida.com"),
   title: {
-    default: "Cynorida: managed detection and response, run in the open",
+    default: "Cynorida: cybersecurity protection, testing and incident response",
     template: "%s | Cynorida",
   },
   applicationName: "Cynorida",
@@ -45,17 +45,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cynorida: managed detection and response, run in the open",
+    title: "Cynorida: cybersecurity protection, testing and incident response",
     description:
-      "24/7/365 analysts, containment only through playbooks you approve, and a shared console that shows every step.",
+      "Penetration testing, red teaming, managed detection and response and incident response, scoped with you and run with written authorisation.",
     images: [shareImage],
   },
   description:
-    "Cynorida analysts watch your endpoints, identities and cloud accounts 24/7/365, and every step they take appears in a console your team shares with ours.",
+    "Cynorida is a security team that protects, tests and investigates your systems: penetration testing, red teaming, managed detection and response and incident response.",
   openGraph: {
-    title: "Cynorida: managed detection and response, run in the open",
+    title: "Cynorida: cybersecurity protection, testing and incident response",
     description:
-      "24/7/365 analysts, containment only through playbooks you approve, and a shared console that shows every step.",
+      "Penetration testing, red teaming, managed detection and response and incident response, scoped with you and run with written authorisation.",
     url: "/",
     siteName: "Cynorida",
     locale: "en_US",

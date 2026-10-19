@@ -5,7 +5,7 @@ export const shareImage = {
   url: "/og-image.png",
   width: 1200,
   height: 630,
-  alt: "Cynorida: managed detection and response, run in the open",
+  alt: "Cynorida: cybersecurity protection, testing and incident response",
 };
 
 type PageMetadataInput = {

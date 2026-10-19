@@ -1,12 +1,12 @@
 import { Arrow } from "@/components/brand/arrow";
 import { SignalField } from "@/components/hero/signal-field";
-import { incidentHref, walkthroughHref } from "@/components/page/contact-links";
+import { incidentHref, projectHref } from "@/components/page/contact-links";
 import { company } from "@/content/company";
 import "./closing.css";
 
 export function Closing() {
   return (
-    <section id="walkthrough" className="closing" aria-labelledby="closing-title">
+    <section id="start" className="closing" aria-labelledby="closing-title">
       <div className="container">
         <div className="closing__band">
           <div className="closing__field" aria-hidden="true">
@@ -17,15 +17,14 @@ export function Closing() {
 
           <div className="closing__content">
             <h2 id="closing-title" className="closing__title">
-              See a live investigation before you decide.
+              Tell us what you need protected or tested.
             </h2>
             <p className="closing__lede">
-              In 30 minutes an analyst walks you through a real alert queue, the playbooks you would approve, and the
-              report you would receive.
+              Describe the system and what worries you about it. We reply with a proposed scope, method and timeline.
             </p>
             <div className="closing__actions">
-              <a className="button button--primary" href={walkthroughHref}>
-                Book a 30-minute walkthrough
+              <a className="button button--primary" href={projectHref}>
+                Start a project
               </a>
               <a className="button button--quiet" href={`mailto:${company.emails.contact}`}>
                 Email {company.emails.contact}

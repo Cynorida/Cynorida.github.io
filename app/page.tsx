@@ -1,10 +1,8 @@
 import { Header } from "@/components/header/header";
 import { Hero } from "@/components/hero/hero";
-import { Sources } from "@/components/sources/sources";
+import { Approach } from "@/components/approach/approach";
 import { Services } from "@/components/services/services";
-import { Platform } from "@/components/platform/platform";
-import { Incident } from "@/components/incident/incident";
-import { Report } from "@/components/report/report";
+import { Method } from "@/components/method/method";
 import { Questions } from "@/components/questions/questions";
 import { Closing } from "@/components/closing/closing";
 import { Footer } from "@/components/footer/footer";
@@ -15,11 +13,9 @@ export default function HomePage() {
       <Header />
       <main id="main">
         <Hero />
-        <Sources />
+        <Approach />
         <Services />
-        <Platform />
-        <Incident />
-        <Report />
+        <Method />
         <Questions />
         <Closing />
       </main>

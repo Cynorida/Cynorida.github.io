@@ -5,7 +5,7 @@ import { PageShell } from "@/components/page/page-shell";
 import { StructuredData, absoluteUrl, breadcrumbData, organizationId } from "@/components/page/structured-data";
 import { PageHeader } from "@/components/page/page-header";
 import { Arrow } from "@/components/brand/arrow";
-import { walkthroughHref } from "@/components/page/contact-links";
+import { projectHref } from "@/components/page/contact-links";
 import { authorisationNote, findOfferedService, offeredServices, serviceKindLabels } from "@/content/services";
 import "../services-page.css";
 
@@ -147,7 +147,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 : "Tell us about your environment and what you need covered, and we will talk you through how it would work for you."}
             </p>
             <div className="service-cta__actions">
-              <a className="button button--primary" href={walkthroughHref}>
+              <a className="button button--primary" href={projectHref}>
                 Talk to us about {serviceTopic}
               </a>
               <a className="button button--quiet" href="/how-we-engage/">

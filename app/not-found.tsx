@@ -19,8 +19,8 @@ export default function NotFound() {
             <a className="button button--primary" href="/">
               Back to the homepage
             </a>
-            <a className="button button--quiet" href="/#walkthrough">
-              Book a walkthrough
+            <a className="button button--quiet" href="/#start">
+              Start a project
               <Arrow />
             </a>
           </div>

@@ -1,8 +1,8 @@
 # Cynorida
 
-> Cynorida is a cybersecurity company. We run managed detection and response, incident response and authorised offensive security testing for organisations that want to see every step of the work.
+> Cynorida is a cybersecurity company. We protect, test and investigate the systems our clients run, through managed detection and response, incident response, threat hunting, penetration testing and red teaming.
 
-Analysts work from the telemetry a client already collects, contain threats only through playbooks the client has approved, and record every step in a console both teams share. Offensive testing starts only after written authorisation and a signed scope.
+We sell security work, not software or accounts: clients keep ownership of their own tools and systems. Every engagement starts with a written scope, offensive testing starts only after signed authorisation, and each finding is reported with its evidence and fix.
 
 ## Services
 

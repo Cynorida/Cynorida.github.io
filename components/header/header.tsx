@@ -62,8 +62,8 @@ export function Header() {
           <a className="header__link header__signin" href={`mailto:${company.emails.contact}`}>
             Contact
           </a>
-          <a className="button button--primary header__cta" href="/#walkthrough">
-            Book a walkthrough
+          <a className="button button--primary header__cta" href="/#start">
+            Start a project
           </a>
           <button
             type="button"

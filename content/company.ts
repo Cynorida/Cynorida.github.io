@@ -39,7 +39,7 @@ export const company: Company = {
   domain: "cynorida.com",
   siteUrl: "https://cynorida.com",
   description:
-    "Cynorida is a cybersecurity company. We run managed detection and response, incident response and authorised offensive security testing for organisations that want to see every step of the work.",
+    "Cynorida is a cybersecurity company. We protect, test and investigate the systems our clients run, through managed detection and response, incident response, threat hunting, penetration testing and red teaming.",
   emails: {
     contact: "contact@cynorida.com",
     security: "security@cynorida.com",

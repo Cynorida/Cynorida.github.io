@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import { Arrow } from "@/components/brand/arrow";
+import { incidentHref, projectHref } from "@/components/page/contact-links";
+import { company } from "@/content/company";
 import "./questions.css";
 
 type Question = {
@@ -9,73 +11,71 @@ type Question = {
 
 const questions: Question[] = [
   {
-    question: "Do we have to replace our EDR?",
+    question: "Do we have to buy software, licences or cloud accounts from you?",
     answer: (
       <p>
-        No. We connect to the tools you already run: your endpoint agent, such as Microsoft Defender for Endpoint,
-        CrowdStrike Falcon or SentinelOne; your identity provider, such as Microsoft Entra ID, Okta or Google
-        Workspace; your cloud audit logs; and your email platform. You keep your licences and your own admin access
-        to every one of them.
+        No. We sell security work, not products. We protect and test the systems, tools and accounts you already run,
+        and you keep ownership and admin access to all of them.
       </p>
     ),
   },
   {
-    question: "What can your analysts do without asking us?",
+    question: "Will you ever test something we have not authorised?",
+    answer: (
+      <p>
+        No. Penetration testing and red teaming start only after written authorisation from someone with the
+        authority to give it, and a scope and rules of engagement both sides have signed. Anything outside that scope
+        is not touched.
+      </p>
+    ),
+  },
+  {
+    question: "What happens if you find something critical during a test?",
+    answer: (
+      <p>
+        We tell your named contact straight away rather than waiting for the report, so you can fix or contain it
+        while the rest of the work continues.
+      </p>
+    ),
+  },
+  {
+    question: "What do we get at the end?",
     answer: (
       <>
-        <p>
-          Only the actions written into playbooks you approve, such as isolating a laptop or revoking a session for a
-          specific type of alert. Anything outside those playbooks waits for a named approver on your side.
-        </p>
-        <p>
-          Every action, pre-approved or not, is logged in the shared console with the analyst who took it and the
-          time it happened.
-        </p>
-      </>
-    ),
-  },
-  {
-    question: "Where is our data stored and who can see it?",
-    answer: (
-      <p>
-        Your data stays in the region you choose at onboarding. Only the analysts assigned to your account can open
-        it, and each time one of them does, the access is logged where your team can review it.
-      </p>
-    ),
-  },
-  {
-    question: "What happens at 3 a.m. on a Sunday?",
-    answer: (
-      <p>
-        The same as at 3 p.m. on a Tuesday. Analysts are on shift around the clock and work from the same playbooks.
-        If an alert needs a decision from you, they page the people in your escalation tree, in the order you set.
-      </p>
-    ),
-  },
-  {
-    question: "How long does onboarding take?",
-    answer: (
-      <>
-        <p>
-          It depends on how many sources you connect and how quickly your team agrees the playbooks, so we plan the
-          dates with you instead of quoting a number up front. The steps are always the same:
-        </p>
+        <p>A written report and a walkthrough with your team. The report covers:</p>
         <ol className="faq__steps">
-          <li>Connect your EDR, identity provider and cloud accounts.</li>
-          <li>Agree the playbooks our analysts may run without asking.</li>
-          <li>Tune detections against what normal looks like in your environment.</li>
-          <li>Go live, with your team watching in the shared console.</li>
+          <li>An executive summary written for non-specialists.</li>
+          <li>Each finding with its severity, evidence, steps to reproduce and how to fix it.</li>
+          <li>The scope and method, including anything we could not test.</li>
+          <li>A retest of the findings you fix, with the results in writing.</li>
         </ol>
       </>
     ),
   },
   {
-    question: "Can we leave and take our data with us?",
+    question: "What happens to our data?",
     answer: (
       <p>
-        Yes. Incidents, timelines and reports export as CSV, PDF or JSON whenever you want them, not only when you
-        leave. Because we work on your own EDR and identity provider, there is no agent of ours to remove on the way
-        out.
+        We access only what the engagement needs, share findings only with the people you name, use your data only for
+        that engagement, and remove or return it at the end as agreed in the contract.
+      </p>
+    ),
+  },
+  {
+    question: "Can you help if we are already under attack?",
+    answer: (
+      <p>
+        Yes. Incident response covers scoping, containment, investigation and recovery. Email{" "}
+        <a href={incidentHref}>{company.emails.security}</a> with what you know so far and how to reach you.
+      </p>
+    ),
+  },
+  {
+    question: "How is the price worked out?",
+    answer: (
+      <p>
+        From the scope: the number and size of the systems involved, the depth of testing or monitoring, and the
+        timeline. We send a proposal with the scope, method and price before any work starts.
       </p>
     ),
   },
@@ -88,13 +88,13 @@ export function Questions() {
         <div className="container faq">
           <div className="faq__head">
             <h2 id="questions-title" className="split-head__title faq__title">
-              Questions security teams ask <span className="split-head__title-muted">before they sign.</span>
+              Questions clients ask <span className="split-head__title-muted">before they sign.</span>
             </h2>
             <p className="faq__lede">
-              Something else on your list? Ask the people who would be watching your alerts.
+              Something else on your list? Ask the engineers who would do the work.
             </p>
-            <a className="split-head__link faq__link" href="#walkthrough">
-              Talk to an analyst
+            <a className="split-head__link faq__link" href={projectHref}>
+              Talk to the team
               <Arrow />
             </a>
           </div>

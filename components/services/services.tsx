@@ -8,7 +8,7 @@ type ServiceColumn = {
 };
 
 const columns: ServiceColumn[] = [
-  { kind: "defensive", detail: "Day-to-day monitoring, response and detection." },
+  { kind: "defensive", detail: "Monitoring, detection and incident response for the systems you run." },
   { kind: "offensive", detail: "Testing on systems you own, with your written authorisation." },
 ];
 
@@ -18,15 +18,15 @@ export function Services() {
       <div className="container">
         <div className="split-head">
           <h2 id="services-title" className="split-head__title">
-            Watch for attacks, and test for them.{" "}
+            Protect your systems, and test them.{" "}
             <span className="split-head__title-muted">
               Only ever on systems you have authorised us to test.
             </span>
           </h2>
           <div>
             <p className="split-head__lede">
-              Every engagement starts with an agreed scope and is written down as it happens, from the playbooks we may
-              run to the targets we may test.
+              Every engagement starts with an agreed scope and is written down as it happens, from the actions we may
+              take on your systems to the targets we may test.
             </p>
             <a className="split-head__link" href="/services/">
               All services

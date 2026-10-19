@@ -1,6 +1,7 @@
 import { Arrow } from "@/components/brand/arrow";
-import { Console } from "./console";
+import { projectHref } from "@/components/page/contact-links";
 import { SignalField } from "./signal-field";
+import { WorkBoard } from "./work-board";
 import "./hero.css";
 
 export function Hero() {
@@ -10,22 +11,22 @@ export function Hero() {
         <div className="hero__intro">
           <p className="hero__eyebrow">
             <span className="hero__eyebrow-dot" aria-hidden="true" />
-            Managed detection and response
+            Protection, testing and incident response
           </p>
           <h1 id="hero-title" className="hero__title">
-            Threat detection and response, run in the open.
+            Security work shaped around the systems you run.
           </h1>
           <div className="hero__row">
             <p className="hero__lede">
-              Cynorida analysts watch your endpoints, identities and cloud accounts 24 hours a day, 365 days a year.
-              Every alert, query and containment step shows up in a console your team shares with ours.
+              Cynorida is a security team that protects, tests and investigates your systems. We agree the scope with
+              you, do the work where your team can see it, and leave you with findings you can act on.
             </p>
             <div className="hero__actions">
-              <a className="button button--primary" href="#walkthrough">
-                Book a 30-minute walkthrough
+              <a className="button button--primary" href={projectHref}>
+                Start a project
               </a>
-              <a className="button button--quiet" href="#incident">
-                Follow a sample incident
+              <a className="button button--quiet" href="#method">
+                See how an engagement runs
                 <Arrow />
               </a>
             </div>
@@ -45,10 +46,8 @@ export function Hero() {
               topFade={0.72}
             />
           </div>
-          <div className="hero__window">
-            <Console />
-          </div>
-          <p className="hero__caption">Sample incident with synthetic data</p>
+          <WorkBoard />
+          <p className="hero__caption">Illustrative engagement records</p>
         </div>
       </div>
     </section>

@@ -21,7 +21,7 @@ export type Service = ServiceSummary & {
 };
 
 export const serviceKindLabels: Record<ServiceKind, string> = {
-  defensive: "Defend",
+  defensive: "Protect",
   offensive: "Test",
 };
 
@@ -33,7 +33,7 @@ export const services: Service[] = [
     slug: "managed-detection-and-response",
     name: "Managed detection and response",
     kind: "defensive",
-    summary: "Analysts watch your endpoints, identities and cloud accounts and act through playbooks you approve.",
+    summary: "Analysts monitor your endpoints, identities and cloud environments and respond through actions you approve.",
     offered: true,
     lede: "Our analysts work from the telemetry you already collect. They triage and investigate what it raises, and they contain threats only through the playbooks you have approved.",
     covers: [
@@ -51,7 +51,7 @@ export const services: Service[] = [
       },
       {
         title: "Connect your sources",
-        detail: "You grant the access needed for the telemetry in scope. We connect it to the shared console and confirm events are arriving.",
+        detail: "You grant the access needed for the telemetry in scope. We connect it to our monitoring and confirm events are arriving.",
       },
       {
         title: "Tune before relying on it",
@@ -59,7 +59,7 @@ export const services: Service[] = [
       },
       {
         title: "Monitor and respond",
-        detail: "Analysts investigate in the console your team can see. They act within approved playbooks, and anything outside them goes to your named contact first.",
+        detail: "Analysts investigate and keep a case record your team can read. They act within approved playbooks, and anything outside them goes to your named contact first.",
       },
       {
         title: "Review together",
@@ -67,7 +67,7 @@ export const services: Service[] = [
       },
     ],
     deliverables: [
-      "Access to the shared console, with alerts, evidence and analyst notes",
+      "A shared case record for every alert, with evidence and analyst notes",
       "A written summary for each confirmed incident",
       "A record of every containment action and the playbook that allowed it",
       "A monthly report on incidents, actions taken, detection coverage and open recommendations",
@@ -83,7 +83,7 @@ export const services: Service[] = [
     lede: "When something has already gone wrong, we help you work out what happened, stop it spreading, remove the attacker’s access and recover. We work on the access you grant and keep a written record throughout.",
     covers: [
       "Scoping the affected systems, accounts and data",
-      "Collecting and preserving evidence from endpoints, logs and cloud accounts",
+      "Collecting and preserving evidence from endpoints, logs and cloud environments",
       "Building a timeline of the attacker’s activity from that evidence",
       "Containment and eradication through actions you approve",
       "Recovery support and hardening to make a repeat harder",
@@ -218,7 +218,7 @@ export const services: Service[] = [
       "Authentication, authorisation and session handling",
       "Your external network perimeter",
       "Internal networks, from a starting point we agree with you",
-      "Cloud accounts and their configuration",
+      "Cloud environments and their configuration",
       "A retest of the findings you fix",
     ],
     steps: [
