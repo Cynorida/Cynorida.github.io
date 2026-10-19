@@ -13,6 +13,10 @@ We sell security work, not software or accounts: clients keep ownership of their
 - [Penetration testing](https://cynorida.com/services/penetration-testing/)
 - [Red teaming](https://cynorida.com/services/red-teaming/)
 
+## Blog posts
+
+- [BeyondTrust Remote Support zero-day CVE-2026-102764: patch, then hunt](https://cynorida.com/blog/beyondtrust-remote-support-zero-day-cve-2026-102764/): what happened, affected versions, BT26-05-RS patch, ARMORY CASTLE indicators and a hunt checklist
+
 ## Company
 
 - [How we engage](https://cynorida.com/how-we-engage/): authorisation, scope, rules of engagement, data handling and reporting

@@ -27,7 +27,6 @@ export type Company = {
     security: string;
     privacy: string;
   };
-  posts: Post[];
   editions: Post[];
   testers: Tester[];
   contentUpdated: string;
@@ -45,7 +44,6 @@ export const company: Company = {
     security: "security@cynorida.com",
     privacy: "privacy@cynorida.com",
   },
-  posts: [],
   editions: [],
   testers: [],
   contentUpdated: "2026-10-19",

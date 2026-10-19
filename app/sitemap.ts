@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { company } from "@/content/company";
+import { postPath, posts } from "@/content/posts";
 import { offeredServices } from "@/content/services";
 
 export const dynamic = "force-static";
@@ -25,6 +26,7 @@ function asDate(isoDate: string) {
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...contentPages.map((path) => ({ url: `${company.siteUrl}${path}`, lastModified: asDate(company.contentUpdated) })),
+    ...posts.map((post) => ({ url: `${company.siteUrl}${postPath(post)}`, lastModified: asDate(post.updated) })),
     ...legalPages.map((path) => ({ url: `${company.siteUrl}${path}`, lastModified: asDate(company.legalUpdated) })),
   ];
 }

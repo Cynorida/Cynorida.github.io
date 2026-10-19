@@ -2,8 +2,14 @@ import { EntryList } from "@/components/company/entry-list";
 import { PageHeader } from "@/components/page/page-header";
 import { pageMetadata } from "@/components/page/page-metadata";
 import { PageShell } from "@/components/page/page-shell";
-import { StructuredData, breadcrumbData } from "@/components/page/structured-data";
-import { company } from "@/content/company";
+import {
+  StructuredData,
+  absoluteUrl,
+  breadcrumbData,
+  organizationId,
+  websiteId,
+} from "@/components/page/structured-data";
+import { postPath, posts } from "@/content/posts";
 import "@/components/company/company.css";
 
 export const metadata = pageMetadata({
@@ -16,7 +22,27 @@ export const metadata = pageMetadata({
 export default function BlogPage() {
   return (
     <PageShell>
-      <StructuredData data={[breadcrumbData([{ name: "Blog", path: "/blog/" }])]} />
+      <StructuredData
+        data={[
+          {
+            "@type": "Blog",
+            "@id": `${absoluteUrl("/blog/")}#blog`,
+            name: "Cynorida blog",
+            url: absoluteUrl("/blog/"),
+            publisher: { "@id": organizationId },
+            isPartOf: { "@id": websiteId },
+            blogPost: posts.map((post) => ({
+              "@type": "NewsArticle",
+              "@id": `${absoluteUrl(postPath(post))}#article`,
+              headline: post.title,
+              url: absoluteUrl(postPath(post)),
+              datePublished: post.published,
+              dateModified: post.updated,
+            })),
+          },
+          breadcrumbData([{ name: "Blog", path: "/blog/" }]),
+        ]}
+      />
       <PageHeader
         eyebrow="Blog"
         title="Research and writing from the team."
@@ -29,8 +55,16 @@ export default function BlogPage() {
             All posts
           </h2>
           <p className="page-section__lede">Every post, most recent first.</p>
-          {company.posts.length > 0 ? (
-            <EntryList linkLabel="Read" entries={company.posts.map((post) => ({ ...post, body: post.summary }))} />
+          {posts.length > 0 ? (
+            <EntryList
+              linkLabel="Read"
+              entries={posts.map((post) => ({
+                title: post.title,
+                body: post.description,
+                date: post.published,
+                href: postPath(post),
+              }))}
+            />
           ) : (
             <div className="empty-state">
               <p>The first posts are being written.</p>

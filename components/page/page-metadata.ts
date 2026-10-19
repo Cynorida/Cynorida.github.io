@@ -13,9 +13,23 @@ type PageMetadataInput = {
   description: string;
   path: string;
   type?: "website" | "article";
+  image?: typeof shareImage;
+  article?: {
+    publishedTime: string;
+    modifiedTime: string;
+    authors: string[];
+    tags: string[];
+  };
 };
 
-export function pageMetadata({ title, description, path, type = "website" }: PageMetadataInput): Metadata {
+export function pageMetadata({
+  title,
+  description,
+  path,
+  type = "website",
+  image = shareImage,
+  article,
+}: PageMetadataInput): Metadata {
   return {
     title,
     description,
@@ -27,13 +41,14 @@ export function pageMetadata({ title, description, path, type = "website" }: Pag
       url: path,
       title,
       description,
-      images: [shareImage],
+      images: [image],
+      ...article,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [shareImage],
+      images: [image],
     },
   };
 }
