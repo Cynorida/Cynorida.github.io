@@ -310,7 +310,7 @@ export const beyondtrustRemoteSupportZeroDay: Post = {
     height: 1500,
     alt: "Remote Support Turned Backdoor poster for CVE-2026-102764",
   },
-  shareImage: `${assets}/share.jpg`,
+  shareImage: { src: `${assets}/share.jpg`, width: 1200, height: 1800 },
   sources: [
     {
       label: "BeyondTrust security advisory BT26-05",

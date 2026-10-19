@@ -15,6 +15,7 @@ We sell security work, not software or accounts: clients keep ownership of their
 
 ## Blog posts
 
+- [No click required: how online ads delivered Candiru spyware](https://cynorida.com/blog/adfection-zero-click-spyware-through-online-ads/): the AdFection zero-click technique, its scale, published indicators and how to block ads at the gateway and on phones
 - [BeyondTrust Remote Support zero-day CVE-2026-102764: patch, then hunt](https://cynorida.com/blog/beyondtrust-remote-support-zero-day-cve-2026-102764/): what happened, affected versions, BT26-05-RS patch, ARMORY CASTLE indicators and a hunt checklist
 
 ## Company

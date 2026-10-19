@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     description: post.description,
     path: postPath(post),
     type: "article",
-    image: { url: post.shareImage, width: 1200, height: 630, alt: post.title },
+    image: { url: post.shareImage.src, width: post.shareImage.width, height: post.shareImage.height, alt: post.poster?.alt ?? post.title },
     article: {
       publishedTime: post.published,
       modifiedTime: post.updated,
@@ -84,7 +84,7 @@ export default async function PostPage({ params }: PostPageProps) {
             articleSection: post.category,
             keywords: post.tags,
             inLanguage: "en",
-            image: [absoluteUrl(post.shareImage), ...(post.poster ? [absoluteUrl(post.poster.download)] : [])],
+            image: [absoluteUrl(post.shareImage.src), ...(post.poster ? [absoluteUrl(post.poster.download)] : [])],
             author: {
               "@type": "Organization",
               name: post.author,
@@ -151,7 +151,7 @@ export default async function PostPage({ params }: PostPageProps) {
               Need help with this?
             </h2>
             <p>
-              If you run an affected appliance and want a second pair of hands, these are the services that fit. Active
+              If this touches your organisation and you want a second pair of hands, these are the services that fit. Active
               incident? Email <a href={incidentHref}>{company.emails.security}</a>.
             </p>
             <ul className="article-related__list">

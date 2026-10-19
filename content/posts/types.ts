@@ -23,6 +23,12 @@ export type PostPoster = {
   alt: string;
 };
 
+export type PostShareImage = {
+  src: string;
+  width: number;
+  height: number;
+};
+
 export type Post = {
   slug: string;
   title: string;
@@ -36,7 +42,7 @@ export type Post = {
   facts: PostFact[];
   sections: PostSection[];
   poster: PostPoster | null;
-  shareImage: string;
+  shareImage: PostShareImage;
   sources: PostSource[];
   relatedServices: string[];
   tags: string[];
