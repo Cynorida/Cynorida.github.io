@@ -30,6 +30,7 @@ export type Company = {
   posts: Post[];
   editions: Post[];
   testers: Tester[];
+  contentUpdated: string;
   legalUpdated: string;
 };
 
@@ -47,5 +48,6 @@ export const company: Company = {
   posts: [],
   editions: [],
   testers: [],
+  contentUpdated: "2026-10-19",
   legalUpdated: "2026-10-19",
 };

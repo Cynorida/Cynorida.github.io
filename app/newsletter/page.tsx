@@ -1,20 +1,24 @@
-import type { Metadata } from "next";
 import { Arrow } from "@/components/brand/arrow";
 import { EntryList } from "@/components/company/entry-list";
 import { subscribeHref } from "@/components/page/contact-links";
 import { PageHeader } from "@/components/page/page-header";
+import { pageMetadata } from "@/components/page/page-metadata";
 import { PageShell } from "@/components/page/page-shell";
+import { StructuredData, breadcrumbData } from "@/components/page/structured-data";
 import { company } from "@/content/company";
 import "@/components/company/company.css";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Newsletter",
-  description: "The Cynorida newsletter: research, tools and security news from the team, sent when there is something worth sending.",
-};
+  description:
+    "The Cynorida Bulletin: research, tools and security news from the team, published here and sent to subscribers.",
+  path: "/newsletter/",
+});
 
 export default function NewsletterPage() {
   return (
     <PageShell>
+      <StructuredData data={[breadcrumbData([{ name: "Newsletter", path: "/newsletter/" }])]} />
       <PageHeader
         eyebrow="Newsletter"
         title="The Cynorida Bulletin."

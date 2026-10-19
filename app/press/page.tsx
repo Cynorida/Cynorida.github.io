@@ -1,13 +1,16 @@
-import type { Metadata } from "next";
 import { PageHeader } from "@/components/page/page-header";
+import { pageMetadata } from "@/components/page/page-metadata";
 import { PageShell } from "@/components/page/page-shell";
+import { StructuredData, breadcrumbData } from "@/components/page/structured-data";
 import { company } from "@/content/company";
 import "./press.css";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Press kit",
-  description: "Official Cynorida brand assets for media, partners, events and publications.",
-};
+  description:
+    "Official Cynorida logo and symbol files for media, partners, events and publications, with logo usage rules.",
+  path: "/press/",
+});
 
 const assets = [
   { name: "Logo", variant: "For dark backgrounds · SVG", file: "/brand/logo.svg", surface: "dark" },
@@ -25,6 +28,7 @@ const rules = [
 export default function PressPage() {
   return (
     <PageShell>
+      <StructuredData data={[breadcrumbData([{ name: "Press kit", path: "/press/" }])]} />
       <PageHeader
         eyebrow="Press kit"
         title="The Cynorida brand, ready to use."

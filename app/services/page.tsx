@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/components/page/page-metadata";
 import { PageShell } from "@/components/page/page-shell";
+import { StructuredData, breadcrumbData } from "@/components/page/structured-data";
 import { PageHeader } from "@/components/page/page-header";
 import { Arrow } from "@/components/brand/arrow";
 import { authorisationNote, offeredServicesOfKind, serviceKindLabels, type ServiceKind } from "@/content/services";
 import "./services-page.css";
 
-export const metadata: Metadata = {
-  title: "Services",
+export const metadata = pageMetadata({
+  title: "Security services",
   description:
     "Managed detection and response, incident response, threat hunting and detection engineering, plus penetration testing and red teaming run only with written authorisation and an agreed scope.",
-};
+  path: "/services/",
+});
 
 type ServiceGroup = {
   kind: ServiceKind;
@@ -33,6 +35,7 @@ const groups: ServiceGroup[] = [
 export default function ServicesPage() {
   return (
     <PageShell>
+      <StructuredData data={[breadcrumbData([{ name: "Services", path: "/services/" }])]} />
       <PageHeader
         eyebrow="Services"
         title="Defend your environment, and test it with your permission."

@@ -1,0 +1,29 @@
+# Cynorida
+
+> Cynorida is a cybersecurity company. We run managed detection and response, incident response and authorised offensive security testing for organisations that want to see every step of the work.
+
+Analysts work from the telemetry a client already collects, contain threats only through playbooks the client has approved, and record every step in a console both teams share. Offensive testing starts only after written authorisation and a signed scope.
+
+## Services
+
+- [Managed detection and response](https://cynorida.com/services/managed-detection-and-response/)
+- [Incident response](https://cynorida.com/services/incident-response/)
+- [Threat hunting](https://cynorida.com/services/threat-hunting/)
+- [Detection engineering](https://cynorida.com/services/detection-engineering/)
+- [Penetration testing](https://cynorida.com/services/penetration-testing/)
+- [Red teaming](https://cynorida.com/services/red-teaming/)
+
+## Company
+
+- [How we engage](https://cynorida.com/how-we-engage/): authorisation, scope, rules of engagement, data handling and reporting
+- [Team](https://cynorida.com/team/)
+- [Partnership program](https://cynorida.com/partnership/)
+- [Press kit](https://cynorida.com/press/)
+- [Blog](https://cynorida.com/blog/)
+- [Newsletter](https://cynorida.com/newsletter/)
+
+## Contact
+
+- General: contact@cynorida.com
+- Security and active incidents: security@cynorida.com
+- Privacy: privacy@cynorida.com

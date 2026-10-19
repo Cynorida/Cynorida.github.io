@@ -1,18 +1,22 @@
-import type { Metadata } from "next";
 import { EntryList } from "@/components/company/entry-list";
 import { PageHeader } from "@/components/page/page-header";
+import { pageMetadata } from "@/components/page/page-metadata";
 import { PageShell } from "@/components/page/page-shell";
+import { StructuredData, breadcrumbData } from "@/components/page/structured-data";
 import { company } from "@/content/company";
 import "@/components/company/company.css";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Blog",
-  description: "Research, case studies and guides written by the Cynorida team.",
-};
+  description:
+    "Research, case studies and guides written by the Cynorida team on detection, incident response and offensive security testing.",
+  path: "/blog/",
+});
 
 export default function BlogPage() {
   return (
     <PageShell>
+      <StructuredData data={[breadcrumbData([{ name: "Blog", path: "/blog/" }])]} />
       <PageHeader
         eyebrow="Blog"
         title="Research and writing from the team."

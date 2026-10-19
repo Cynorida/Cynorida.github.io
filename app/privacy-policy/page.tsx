@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import { PageHeader } from "@/components/page/page-header";
+import { pageMetadata } from "@/components/page/page-metadata";
 import { PageShell } from "@/components/page/page-shell";
+import { StructuredData, breadcrumbData } from "@/components/page/structured-data";
 import { LastUpdated } from "@/components/policy/last-updated";
 import { PolicyLayout, type PolicySection } from "@/components/policy/policy-layout";
 import { company } from "@/content/company";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Privacy policy",
   description:
     "What personal data the Cynorida website and our email addresses process, why, for how long, and the rights you have over it. The site sets no cookies and runs no analytics.",
-};
+  path: "/privacy-policy/",
+});
 
 const sections: PolicySection[] = [
   { id: "who-is-responsible", title: "Who is responsible" },
@@ -30,6 +32,7 @@ export default function PrivacyPage() {
   const privacyEmail = company.emails.privacy;
   return (
     <PageShell>
+      <StructuredData data={[breadcrumbData([{ name: "Privacy policy", path: "/privacy-policy/" }])]} />
       <PageHeader
         eyebrow="Legal"
         title="Privacy policy"

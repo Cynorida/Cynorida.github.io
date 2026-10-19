@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/components/page/page-metadata";
 import { PageShell } from "@/components/page/page-shell";
+import { StructuredData, breadcrumbData } from "@/components/page/structured-data";
 import { PageHeader } from "@/components/page/page-header";
 import { Arrow } from "@/components/brand/arrow";
 import { company } from "@/content/company";
 import "./engage-page.css";
 
-export const metadata: Metadata = {
-  title: "How we engage",
+export const metadata = pageMetadata({
+  title: "How we engage: authorisation, scope and rules of engagement",
   description:
     "Offensive testing happens only with prior written authorisation from the system owner, a signed scope and rules of engagement. How we handle scope, third parties, data, reporting and defensive work.",
-};
+  path: "/how-we-engage/",
+});
 
 const contents = [
   { id: "authorisation", label: "Written authorisation" },
@@ -27,6 +29,7 @@ const contents = [
 export default function HowWeEngagePage() {
   return (
     <PageShell>
+      <StructuredData data={[breadcrumbData([{ name: "How we engage", path: "/how-we-engage/" }])]} />
       <PageHeader
         eyebrow="Authorisation and scope"
         title="How we engage"

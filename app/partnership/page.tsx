@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import { Arrow } from "@/components/brand/arrow";
 import { partnershipHref } from "@/components/page/contact-links";
 import { PageHeader } from "@/components/page/page-header";
+import { pageMetadata } from "@/components/page/page-metadata";
 import { PageShell } from "@/components/page/page-shell";
+import { StructuredData, breadcrumbData } from "@/components/page/structured-data";
 import { company } from "@/content/company";
 
-export const metadata: Metadata = {
-  title: "Partnership",
+export const metadata = pageMetadata({
+  title: "Partnership program",
   description:
-    "Add Cynorida's detection, response and testing to your own portfolio, under your brand or by referral, without building a security team.",
-};
+    "Offer Cynorida managed detection, incident response and authorised testing to your clients, under your brand or by referral.",
+  path: "/partnership/",
+});
 
 const models = [
   {
@@ -48,6 +50,7 @@ const benefits = [
 export default function PartnershipPage() {
   return (
     <PageShell>
+      <StructuredData data={[breadcrumbData([{ name: "Partnership", path: "/partnership/" }])]} />
       <PageHeader
         eyebrow="Partnership"
         title="Add security work to what you already offer."

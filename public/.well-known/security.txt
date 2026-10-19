@@ -1,0 +1,4 @@
+Contact: mailto:security@cynorida.com
+Expires: 2027-10-18T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://cynorida.com/.well-known/security.txt

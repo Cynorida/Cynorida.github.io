@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import { PageHeader } from "@/components/page/page-header";
+import { pageMetadata } from "@/components/page/page-metadata";
 import { PageShell } from "@/components/page/page-shell";
+import { StructuredData, breadcrumbData } from "@/components/page/structured-data";
 import { LastUpdated } from "@/components/policy/last-updated";
 import { PolicyLayout, type PolicySection } from "@/components/policy/policy-layout";
 import { company } from "@/content/company";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Terms of use",
   description:
     "The terms that apply when you use the Cynorida website, including the rule against unauthorised security testing.",
-};
+  path: "/terms-of-use/",
+});
 
 const sections: PolicySection[] = [
   { id: "who-we-are", title: "Who we are" },
@@ -28,6 +30,7 @@ export default function TermsPage() {
 
   return (
     <PageShell>
+      <StructuredData data={[breadcrumbData([{ name: "Terms of use", path: "/terms-of-use/" }])]} />
       <PageHeader
         eyebrow="Legal"
         title="Terms of use"

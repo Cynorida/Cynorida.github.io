@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { pageMetadata } from "@/components/page/page-metadata";
 import { PageShell } from "@/components/page/page-shell";
+import { StructuredData, absoluteUrl, breadcrumbData, organizationId } from "@/components/page/structured-data";
 import { PageHeader } from "@/components/page/page-header";
 import { Arrow } from "@/components/brand/arrow";
 import { walkthroughHref } from "@/components/page/contact-links";
@@ -21,10 +23,11 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const { slug } = await params;
   const service = findOfferedService(slug);
   if (!service) return {};
-  return {
-    title: service.name,
+  return pageMetadata({
+    title: `${service.name} services`,
     description: service.summary,
-  };
+    path: `/services/${service.slug}/`,
+  });
 }
 
 function CheckMark() {
@@ -40,11 +43,29 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const service = findOfferedService(slug);
   if (!service) notFound();
 
+  const servicePath = `/services/${service.slug}/`;
   const isOffensive = service.kind === "offensive";
   const serviceTopic = service.name.toLowerCase();
 
   return (
     <PageShell>
+      <StructuredData
+        data={[
+          {
+            "@type": "Service",
+            "@id": `${absoluteUrl(servicePath)}#service`,
+            name: service.name,
+            serviceType: service.name,
+            description: service.lede,
+            url: absoluteUrl(servicePath),
+            provider: { "@id": organizationId },
+          },
+          breadcrumbData([
+            { name: "Services", path: "/services/" },
+            { name: service.name, path: servicePath },
+          ]),
+        ]}
+      />
       <PageHeader eyebrow={`Services · ${serviceKindLabels[service.kind]}`} title={service.name} lede={service.lede} />
 
       {isOffensive ? (

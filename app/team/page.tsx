@@ -1,20 +1,23 @@
-import type { Metadata } from "next";
 import { externalProps } from "@/components/company/links";
 import { PageHeader } from "@/components/page/page-header";
+import { pageMetadata } from "@/components/page/page-metadata";
 import { PageShell } from "@/components/page/page-shell";
+import { StructuredData, breadcrumbData } from "@/components/page/structured-data";
 import { company } from "@/content/company";
 import "@/components/company/company.css";
 import "./team.css";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Team",
   description:
-    "The testers who run Cynorida's penetration testing and red teaming, with their certifications and links to verify each one.",
-};
+    "The testers who run Cynorida penetration testing and red teaming, with their certifications and links to verify each one.",
+  path: "/team/",
+});
 
 export default function TeamPage() {
   return (
     <PageShell>
+      <StructuredData data={[breadcrumbData([{ name: "Team", path: "/team/" }])]} />
       <PageHeader
         eyebrow="Team"
         title="The people who test your systems."

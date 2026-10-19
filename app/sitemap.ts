@@ -2,18 +2,29 @@ import type { MetadataRoute } from "next";
 import { company } from "@/content/company";
 import { offeredServices } from "@/content/services";
 
-const pages = [
+export const dynamic = "force-static";
+
+const contentPages = [
   "/",
   "/services/",
   ...offeredServices.map((service) => `/services/${service.slug}/`),
   "/how-we-engage/",
   "/team/",
-  "/blog/", "/newsletter/", "/partnership/", "/press/", "/privacy-policy/", "/terms-of-use/",
+  "/blog/",
+  "/newsletter/",
+  "/partnership/",
+  "/press/",
 ];
 
-export const dynamic = "force-static";
+const legalPages = ["/privacy-policy/", "/terms-of-use/"];
+
+function asDate(isoDate: string) {
+  return new Date(`${isoDate}T00:00:00Z`);
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date(`${company.legalUpdated}T00:00:00Z`);
-  return pages.map((path) => ({ url: `${company.siteUrl}${path}`, lastModified }));
+  return [
+    ...contentPages.map((path) => ({ url: `${company.siteUrl}${path}`, lastModified: asDate(company.contentUpdated) })),
+    ...legalPages.map((path) => ({ url: `${company.siteUrl}${path}`, lastModified: asDate(company.legalUpdated) })),
+  ];
 }
