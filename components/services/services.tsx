@@ -1,4 +1,3 @@
-import { Arrow } from "@/components/brand/arrow";
 import { offeredServicesOfKind, serviceKindLabels, type ServiceKind } from "@/content/services";
 import "./services.css";
 
@@ -28,10 +27,6 @@ export function Services() {
               Every engagement starts with an agreed scope and is written down as it happens, from the playbooks we may
               run to the targets we may test.
             </p>
-            <a className="split-head__link" href="/services">
-              All services
-              <Arrow />
-            </a>
           </div>
         </div>
 
@@ -51,22 +46,16 @@ export function Services() {
                 <ul className="offerings__list" aria-labelledby={titleId}>
                   {columnServices.map((service) => (
                     <li key={service.slug} className="offerings__item">
-                      <a className="offerings__link" href={`/services/${service.slug}`}>
-                        <span className="offerings__name">
-                          {service.name}
-                          <Arrow className="offerings__arrow" />
-                        </span>
+                      <div className="offerings__link">
+                        <span className="offerings__name">{service.name}</span>
                         <span className="offerings__summary">{service.summary}</span>
-                      </a>
+                      </div>
                     </li>
                   ))}
                 </ul>
                 {column.kind === "offensive" ? (
                   <p className="offerings__note">
-                    Offensive testing starts only after written authorisation and a signed scope.{" "}
-                    <a className="offerings__note-link" href="/how-we-engage">
-                      How we engage
-                    </a>
+                    Offensive testing starts only after written authorisation and a signed scope.
                   </p>
                 ) : null}
               </div>

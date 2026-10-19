@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page/page-header";
 import { PageShell } from "@/components/page/page-shell";
-import { Missing } from "@/components/page/missing";
 import { LastUpdated } from "@/components/policy/last-updated";
 import { PolicyLayout, type PolicySection } from "@/components/policy/policy-layout";
-import { company, formatAddress, legalEntityName } from "@/content/company";
+import { company } from "@/content/company";
 
 export const metadata: Metadata = {
-  title: "Privacy",
+  title: "Privacy policy",
   description:
     "What personal data the Cynorida website and our email addresses process, why, for how long, and the rights you have over it. The site sets no cookies and runs no analytics.",
 };
@@ -29,13 +28,11 @@ const sections: PolicySection[] = [
 
 export default function PrivacyPage() {
   const privacyEmail = company.emails.privacy;
-  const address = company.registeredAddress;
-
   return (
     <PageShell>
       <PageHeader
         eyebrow="Legal"
-        title="Privacy notice"
+        title="Privacy policy"
         lede={`How the ${company.brandName} website and our email addresses handle personal data. The short version: the site sets no cookies, runs no analytics and has no forms.`}
         meta={<LastUpdated />}
       />
@@ -43,10 +40,8 @@ export default function PrivacyPage() {
       <PolicyLayout sections={sections}>
         <h2 id="who-is-responsible">Who is responsible</h2>
         <p>
-          {legalEntityName()} is responsible for the personal data described in this notice.
-          {address ? <> Our registered office is at {formatAddress(address)}.</> : null}
+          {company.brandName} is responsible for the personal data described in this notice.
         </p>
-        {address ? null : <Missing field="company.registeredAddress" hint="registered office of the legal entity" />}
         <p>
           You can reach us about anything in this notice at <a href={`mailto:${privacyEmail}`}>{privacyEmail}</a>.
         </p>
@@ -84,13 +79,9 @@ export default function PrivacyPage() {
           <li>the date and time of the request.</li>
         </ul>
         <p>
-          These logs are processed by our hosting provider
-          {company.hostingProvider ? <>, {company.hostingProvider},</> : null} so that the website can be delivered,
-          kept secure and protected against abuse. We do not use them to identify or profile visitors.
+          These logs are processed by our hosting provider, GitHub Pages, so that the website can be delivered, kept
+          secure and protected against abuse. We do not use them to identify or profile visitors.
         </p>
-        {company.hostingProvider ? null : (
-          <Missing field="company.hostingProvider" hint="name of the company that hosts the website" />
-        )}
 
         <h2 id="emails">Emails you send us</h2>
         <p>When you email one of our addresses, we receive:</p>
@@ -158,7 +149,7 @@ export default function PrivacyPage() {
         <h2 id="contact">Contact</h2>
         <p>
           For any question about privacy, email <a href={`mailto:${privacyEmail}`}>{privacyEmail}</a>. For anything
-          else, see our <a href="/contact">contact page</a>.
+          else, email <a href={`mailto:${company.emails.contact}`}>{company.emails.contact}</a>.
         </p>
 
         <h2 id="changes">Changes to this notice</h2>

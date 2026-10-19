@@ -1,5 +1,6 @@
 import { Arrow } from "@/components/brand/arrow";
 import { SignalField } from "@/components/hero/signal-field";
+import { incidentHref, walkthroughHref } from "@/components/page/contact-links";
 import { company } from "@/content/company";
 import "./closing.css";
 
@@ -23,7 +24,7 @@ export function Closing() {
               report you would receive.
             </p>
             <div className="closing__actions">
-              <a className="button button--primary" href="/contact#walkthrough">
+              <a className="button button--primary" href={walkthroughHref}>
                 Book a 30-minute walkthrough
               </a>
               <a className="button button--quiet" href={`mailto:${company.emails.contact}`}>
@@ -32,8 +33,8 @@ export function Closing() {
             </div>
             <p className="closing__note">
               Under attack right now?{" "}
-              <a className="closing__note-link" href="/contact#incident">
-                Reach our incident line
+              <a className="closing__note-link" href={incidentHref}>
+                Email {company.emails.security}
                 <Arrow className="closing__note-arrow" />
               </a>
             </p>

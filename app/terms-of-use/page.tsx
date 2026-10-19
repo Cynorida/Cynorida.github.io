@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page/page-header";
 import { PageShell } from "@/components/page/page-shell";
-import { Missing } from "@/components/page/missing";
 import { LastUpdated } from "@/components/policy/last-updated";
 import { PolicyLayout, type PolicySection } from "@/components/policy/policy-layout";
-import { company, formatAddress, legalEntityName } from "@/content/company";
+import { company } from "@/content/company";
 
 export const metadata: Metadata = {
   title: "Terms of use",
   description:
-    "The terms that apply when you use the Cynorida website, including the rule against security testing outside our vulnerability disclosure policy.",
+    "The terms that apply when you use the Cynorida website, including the rule against unauthorised security testing.",
 };
 
 const sections: PolicySection[] = [
@@ -20,14 +19,12 @@ const sections: PolicySection[] = [
   { id: "links", title: "Links to other sites" },
   { id: "warranties", title: "No warranties" },
   { id: "liability", title: "Limitation of liability" },
-  { id: "governing-law", title: "Governing law" },
   { id: "changes", title: "Changes to these terms" },
   { id: "contact", title: "Contact" },
 ];
 
 export default function TermsPage() {
-  const owner = legalEntityName();
-  const address = company.registeredAddress;
+  const owner = company.brandName;
 
   return (
     <PageShell>
@@ -41,21 +38,9 @@ export default function TermsPage() {
       <PolicyLayout sections={sections}>
         <h2 id="who-we-are">Who we are</h2>
         <p>
-          This website is operated by {owner}
-          {company.legalName && company.legalName !== company.brandName ? <>, trading as {company.brandName}</> : null}
-          {address ? <>, whose registered office is at {formatAddress(address)}</> : null}
-          {company.registrationNumber && company.registrationAuthority ? (
-            <>
-              , registered with {company.registrationAuthority} under number {company.registrationNumber}
-            </>
-          ) : null}
-          . In these terms, &ldquo;we&rdquo;, &ldquo;us&rdquo; and &ldquo;our&rdquo; mean {owner}.
+          This website is operated by {owner}. In these terms, &ldquo;we&rdquo;, &ldquo;us&rdquo; and
+          &ldquo;our&rdquo; mean {owner}.
         </p>
-        {company.legalName ? null : <Missing field="company.legalName" hint="exact registered name of the entity" />}
-        {address ? null : <Missing field="company.registeredAddress" hint="registered office of the legal entity" />}
-        {company.registrationNumber && company.registrationAuthority ? null : (
-          <Missing field="company.registrationNumber" hint="and registrationAuthority" />
-        )}
 
         <h2 id="using-the-site">Using the site</h2>
         <p>
@@ -72,9 +57,8 @@ export default function TermsPage() {
         <h2 id="security-testing">Security testing</h2>
         <p>
           You must not probe, scan, test or attempt to break the security of this website or any service we operate,
-          except as allowed by our <a href="/security/disclosure">vulnerability disclosure policy</a>. Research that
-          follows that policy in good faith is authorised. Anything outside it, such as denial-of-service testing or
-          accessing data that is not yours, is not.
+          unless we have authorised it in writing. Denial-of-service testing and accessing data that is not yours are
+          never authorised.
         </p>
         <p>
           If you think you have found a vulnerability, report it to{" "}
@@ -112,16 +96,6 @@ export default function TermsPage() {
           Nothing in these terms limits or excludes any liability that cannot be limited or excluded by law.
         </p>
 
-        <h2 id="governing-law">Governing law</h2>
-        <p>
-          These terms are governed by the law of the country in which {owner} has its registered office
-          {address ? <>, which is {address.country}</> : null}. The courts of that country have jurisdiction over any
-          dispute about them, without taking away any protection that the law of your own country gives you.
-        </p>
-        {address ? null : (
-          <Missing field="company.registeredAddress.country" hint="country of the registered office sets the governing law" />
-        )}
-
         <h2 id="changes">Changes to these terms</h2>
         <p>
           We may change these terms from time to time. The version on this page is the one that applies, and the date
@@ -131,7 +105,7 @@ export default function TermsPage() {
         <h2 id="contact">Contact</h2>
         <p>
           For questions about these terms, email <a href={`mailto:${company.emails.contact}`}>{company.emails.contact}</a>
-          . For anything else, see our <a href="/contact">contact page</a>.
+          .
         </p>
       </PolicyLayout>
     </PageShell>

@@ -2,14 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { Wordmark } from "@/components/brand/mark";
+import { incidentHref } from "@/components/page/contact-links";
+import { company } from "@/content/company";
 import "./header.css";
 
 const links = [
-  { href: "/services", label: "Services" },
+  { href: "/#services", label: "Services" },
   { href: "/#platform", label: "Platform" },
-  { href: "/how-we-engage", label: "How we engage" },
-  { href: "/research", label: "Research" },
-  { href: "/about", label: "Company" },
+  { href: "/blog/", label: "Blog" },
+  { href: "/newsletter/", label: "Newsletter" },
+  { href: "/partnership/", label: "Partnership" },
 ];
 
 export function Header() {
@@ -52,14 +54,14 @@ export function Header() {
         </nav>
 
         <div className="header__actions">
-          <a className="header__alert" href="/contact#incident">
+          <a className="header__alert" href={incidentHref}>
             <span className="header__alert-dot" aria-hidden="true" />
             Under attack?
           </a>
-          <a className="header__link header__signin" href="/contact">
+          <a className="header__link header__signin" href={`mailto:${company.emails.contact}`}>
             Contact
           </a>
-          <a className="button button--primary header__cta" href="/contact#walkthrough">
+          <a className="button button--primary header__cta" href="/#walkthrough">
             Book a walkthrough
           </a>
           <button
@@ -86,12 +88,12 @@ export function Header() {
             </li>
           ))}
           <li>
-            <a className="header__sheet-link" href="/contact" onClick={() => setOpen(false)}>
+            <a className="header__sheet-link" href={`mailto:${company.emails.contact}`} onClick={() => setOpen(false)}>
               Contact
             </a>
           </li>
           <li>
-            <a className="header__sheet-link header__sheet-link--alert" href="/contact#incident">
+            <a className="header__sheet-link header__sheet-link--alert" href={incidentHref}>
               Under attack? Get help now
             </a>
           </li>

@@ -42,39 +42,18 @@ export const viewport: Viewport = {
 };
 
 function organizationData() {
-  const sameAs = [company.profiles.linkedin, company.profiles.github].filter(Boolean);
-  const address = company.registeredAddress;
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: company.brandName,
-    ...(company.legalName ? { legalName: company.legalName } : {}),
     url: company.siteUrl,
     logo: `${company.siteUrl}/brand/logo-on-light.svg`,
     description: company.description,
     email: company.emails.contact,
-    ...(company.founded ? { foundingDate: company.founded } : {}),
-    ...(company.registrationNumber
-      ? { identifier: { "@type": "PropertyValue", name: "Company registration number", value: company.registrationNumber } }
-      : {}),
-    ...(company.vatNumber ? { vatID: company.vatNumber } : {}),
-    ...(address
-      ? {
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: address.street,
-            addressLocality: address.locality,
-            ...(address.region ? { addressRegion: address.region } : {}),
-            postalCode: address.postalCode,
-            addressCountry: address.country,
-          },
-        }
-      : {}),
     contactPoint: [
       { "@type": "ContactPoint", contactType: "customer support", email: company.emails.contact },
       { "@type": "ContactPoint", contactType: "security", email: company.emails.security },
     ],
-    ...(sameAs.length > 0 ? { sameAs } : {}),
   };
 }
 

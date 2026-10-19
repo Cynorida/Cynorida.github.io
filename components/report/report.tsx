@@ -1,4 +1,5 @@
 import { Arrow } from "@/components/brand/arrow";
+import { walkthroughHref } from "@/components/page/contact-links";
 import { CoveragePage, IncidentPage, SummaryPage } from "./report-pages";
 import "./report.css";
 
@@ -49,7 +50,7 @@ export function Report() {
                   </li>
                 ))}
               </ul>
-              <a className="button button--quiet report__link" href="/contact#walkthrough">
+              <a className="button button--quiet report__link" href={walkthroughHref}>
                 Ask for a sample report
                 <Arrow />
               </a>

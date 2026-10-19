@@ -1,7 +1,5 @@
 import { Wordmark } from "@/components/brand/mark";
-import { Missing } from "@/components/page/missing";
-import { company, formatAddress, legalEntityName } from "@/content/company";
-import { offeredServices } from "@/content/services";
+import { company } from "@/content/company";
 import "./footer.css";
 
 type FooterColumn = {
@@ -12,41 +10,35 @@ type FooterColumn = {
 
 const columns: FooterColumn[] = [
   {
-    id: "footer-services",
-    title: "Services",
+    id: "footer-navigation",
+    title: "Navigation",
     links: [
-      ...offeredServices.map((service) => ({ label: service.name, href: `/services/${service.slug}` })),
+      { label: "Services", href: "/#services" },
+      { label: "Platform", href: "/#platform" },
+      { label: "Blog", href: "/blog/" },
+      { label: "Newsletter", href: "/newsletter/" },
+      { label: "Privacy policy", href: "/privacy-policy/" },
+      { label: "Terms of use", href: "/terms-of-use/" },
     ],
   },
   {
     id: "footer-company",
     title: "Company",
     links: [
-      { label: "About", href: "/about" },
-      { label: "Team", href: "/team" },
-      { label: "Research", href: "/research" },
-      { label: "News", href: "/news" },
-      { label: "Contact", href: "/contact" },
+      { label: "Partnership", href: "/partnership/" },
+      { label: "Press kit", href: "/press/" },
     ],
   },
   {
-    id: "footer-trust",
-    title: "Trust",
+    id: "footer-contact",
+    title: "Contact",
     links: [
-      { label: "How we engage", href: "/how-we-engage" },
-      { label: "Security", href: "/security" },
-      { label: "Vulnerability disclosure", href: "/security/disclosure" },
-      { label: "security.txt", href: "/.well-known/security.txt" },
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
+      { label: company.emails.contact, href: `mailto:${company.emails.contact}` },
+      { label: company.emails.security, href: `mailto:${company.emails.security}` },
+      { label: company.emails.privacy, href: `mailto:${company.emails.privacy}` },
     ],
   },
 ];
-
-const profiles = [
-  { label: "LinkedIn", href: company.profiles.linkedin },
-  { label: "GitHub", href: company.profiles.github },
-].filter((profile): profile is { label: string; href: string } => Boolean(profile.href));
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -58,19 +50,6 @@ export function Footer() {
             <Wordmark />
           </a>
           <p className="footer__about">{company.description}</p>
-          {profiles.length > 0 ? (
-            <ul className="footer__profiles">
-              {profiles.map((profile) => (
-                <li key={profile.label}>
-                  <a className="footer__profile" href={profile.href} rel="me noopener" target="_blank">
-                    {profile.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <Missing field="company.profiles" hint="LinkedIn and GitHub URLs" />
-          )}
         </div>
 
         <div className="footer__columns">
@@ -93,34 +72,9 @@ export function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <div className="footer__identity">
-            <p className="footer__legal">
-              © {year} {legalEntityName()}
-              {company.legalName === null ? <Missing field="company.legalName" /> : null}
-            </p>
-            <p className="footer__legal">
-              {company.registrationNumber && company.registrationAuthority ? (
-                <>
-                  Registered with {company.registrationAuthority}, number {company.registrationNumber}.{" "}
-                </>
-              ) : (
-                <Missing field="company.registrationNumber" hint="and registrationAuthority" />
-              )}
-              {company.registeredAddress ? (
-                <>Registered office: {formatAddress(company.registeredAddress)}.</>
-              ) : (
-                <Missing field="company.registeredAddress" />
-              )}
-            </p>
-          </div>
-          <div className="footer__contacts">
-            <a className="footer__link footer__email" href={`mailto:${company.emails.contact}`}>
-              {company.emails.contact}
-            </a>
-            <a className="footer__link footer__email" href={`mailto:${company.emails.security}`}>
-              {company.emails.security}
-            </a>
-          </div>
+          <p className="footer__legal">
+            © {year} {company.brandName}
+          </p>
         </div>
       </div>
     </footer>
